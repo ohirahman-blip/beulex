@@ -11,6 +11,8 @@ const slotStep = document.querySelector('#slot-step');
 const slotPanel = document.querySelector('#slot-panel');
 const slotPlaceholder = document.querySelector('#slot-placeholder');
 const dateTabs = document.querySelector('#date-tabs');
+const datesPrev = document.querySelector('#dates-prev');
+const datesNext = document.querySelector('#dates-next');
 const timeSlots = document.querySelector('#time-slots');
 const selectedSlot = document.querySelector('#selected-slot');
 const slotError = document.querySelector('#slot-error');
@@ -21,7 +23,8 @@ const contactInput = document.querySelector('#contact-value');
 const contactLabel = document.querySelector('#contact-label');
 const contactError = document.querySelector('#contact-error');
 const consent = document.querySelector('#consent');
-const successMessage = document.querySelector('#success-message');
+const thankYou = document.querySelector('#thank-you');
+const backHome = document.querySelector('#back-home');
 
 let currentContactType = 'email';
 let availableDays = [];
@@ -173,6 +176,9 @@ uploadZone.addEventListener('drop', event => {
   showFile(file);
 });
 
+datesPrev.addEventListener('click', () => dateTabs.scrollBy({ left: -320, behavior: 'smooth' }));
+datesNext.addEventListener('click', () => dateTabs.scrollBy({ left: 320, behavior: 'smooth' }));
+
 document.querySelectorAll('[data-contact]').forEach(button => button.addEventListener('click', () => {
   currentContactType = button.dataset.contact;
   document.querySelectorAll('[data-contact]').forEach(item => {
@@ -211,6 +217,25 @@ form.addEventListener('submit', event => {
     contactError.textContent = 'Bitte bestätige, dass wir dich kontaktieren dürfen.';
     return;
   }
-  successMessage.hidden = false;
-  successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  thankYou.hidden = false;
+  document.body.style.overflow = 'hidden';
 });
+
+backHome.addEventListener('click', () => {
+  thankYou.hidden = true;
+  document.body.style.overflow = '';
+  form.reset();
+  clearFile();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: .12 });
+
+document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
