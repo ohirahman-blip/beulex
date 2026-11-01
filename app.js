@@ -102,22 +102,19 @@ function unlockSlots() {
     dateTabs.append(button);
     if (index === 0) renderTimes(date, button);
   });
-  slotStep.classList.remove('is-locked');
-  slotStep.setAttribute('aria-disabled', 'false');
+  slotStep.hidden = false;
   slotPanel.hidden = false;
   slotPlaceholder.hidden = true;
 }
 
 function lockContact() {
-  contactStep.classList.add('is-locked');
-  contactStep.setAttribute('aria-disabled', 'true');
+  contactStep.hidden = true;
   contactPanel.hidden = true;
   contactPlaceholder.hidden = false;
 }
 
 function unlockContact() {
-  contactStep.classList.remove('is-locked');
-  contactStep.setAttribute('aria-disabled', 'false');
+  contactStep.hidden = false;
   contactPanel.hidden = false;
   contactPlaceholder.hidden = true;
 }
@@ -128,8 +125,7 @@ function clearFile() {
   previewImage.removeAttribute('src');
   preview.hidden = true;
   uploadZone.hidden = false;
-  slotStep.classList.add('is-locked');
-  slotStep.setAttribute('aria-disabled', 'true');
+  slotStep.hidden = true;
   slotPanel.hidden = true;
   slotPlaceholder.hidden = false;
   selectedSlot.value = '';
