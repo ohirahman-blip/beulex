@@ -3,47 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Beulex – eine moderne, schnelle HTML-Seite.">
-  <title>Beulex</title>
+  <meta name="description" content="BEULEX – Datum auswählen und Bild hochladen.">
+  <meta name="theme-color" content="#061f5c">
+  <title>BEULEX – Einfach starten</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#start" aria-label="Beulex Startseite">beulex<span>.</span></a>
-    <nav aria-label="Hauptnavigation">
-      <a href="#idee">Idee</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
+    <a class="brand" href="#start" aria-label="BEULEX Startseite">
+      <img src="assets/beulex-logo.png" alt="BEULEX">
+    </a>
+    <span class="header-note">Einfach. Direkt. Digital.</span>
   </header>
 
   <main id="start">
     <section class="hero">
-      <p class="eyebrow">Willkommen bei Beulex</p>
-      <h1>Eine frische Idee.<br><em>Klar präsentiert.</em></h1>
-      <p class="intro">Beulex ist bereit für deinen Inhalt – schnell, responsiv und ohne unnötigen Ballast.</p>
-      <a class="button" href="#idee">Mehr entdecken <span aria-hidden="true">→</span></a>
-      <div class="orb orb-one" aria-hidden="true"></div>
-      <div class="orb orb-two" aria-hidden="true"></div>
-    </section>
-
-    <section class="about" id="idee">
-      <p class="section-number">01 / Die Idee</p>
-      <div>
-        <h2>Ein sauberer Start für dein nächstes Projekt.</h2>
-        <p>Diese Seite besteht aus purem HTML und CSS. Sie lädt schnell, funktioniert auf Handy und Desktop und lässt sich leicht erweitern.</p>
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> In zwei einfachen Schritten</p>
+        <h1>Datum wählen.<br><em>Bild hochladen.</em></h1>
+        <p class="intro">Wähle deinen Wunschtermin und lade ein passendes Foto hoch. Den Rest bauen wir als Nächstes.</p>
+        <div class="trust-row" aria-label="Vorteile">
+          <span>✓ Ohne Anmeldung</span>
+          <span>✓ Direkt im Browser</span>
+        </div>
       </div>
-    </section>
 
-    <section class="contact" id="kontakt">
-      <p class="section-number">02 / Nächster Schritt</p>
-      <h2>Was soll Beulex werden?</h2>
-      <p>Portfolio, Produktseite oder etwas ganz Neues – der Grundstein steht.</p>
+      <form class="action-card" id="beulex-form">
+        <div class="card-topline">
+          <span>Deine Auswahl</span>
+          <span class="step-badge">01—02</span>
+        </div>
+
+        <label class="field-label" for="date">Wunschtermin</label>
+        <div class="date-field">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+          <input id="date" name="date" type="date" required>
+        </div>
+
+        <label class="field-label" for="image">Dein Bild</label>
+        <label class="upload-zone" id="upload-zone" for="image">
+          <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required>
+          <span class="upload-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg>
+          </span>
+          <strong>Bild hier ablegen</strong>
+          <span>oder zum Auswählen klicken</span>
+          <small>JPG, PNG oder WEBP · max. 10 MB</small>
+        </label>
+
+        <div class="preview" id="preview" hidden>
+          <img id="preview-image" alt="Vorschau des ausgewählten Bildes">
+          <div>
+            <strong id="file-name"></strong>
+            <span id="file-size"></span>
+          </div>
+          <button type="button" id="remove-image" aria-label="Bild entfernen">×</button>
+        </div>
+
+        <button class="submit-button" type="submit">Auswahl bestätigen <span>→</span></button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Beulex</p>
-    <a href="#start">Nach oben ↑</a>
+    <img src="assets/beulex-logo.png" alt="" aria-hidden="true">
+    <p>© 2026 BEULEX</p>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
