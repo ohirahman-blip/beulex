@@ -1,0 +1,11 @@
+{
+  "name": "beulex-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BEULEX Landingpage für Bild-Upload und Terminanfrage",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  }
+}
