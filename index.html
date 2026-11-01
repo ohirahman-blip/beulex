@@ -17,7 +17,7 @@
   </header>
 
   <main id="start">
-    <section class="hero">
+    <section class="hero reveal">
       <div class="hero-copy">
         <p class="eyebrow">Smart Repair für dein Fahrzeug</p>
         <h1>Ausbeulen<br><em>ohne Lackieren.</em></h1>
@@ -33,7 +33,7 @@
       </aside>
     </section>
 
-    <section class="request-section" id="anfrage">
+    <section class="request-section reveal" id="anfrage">
       <div class="section-heading">
         <p class="eyebrow">Deine Anfrage</p>
         <h2>Foto hochladen.<br>Termin bekommen.</h2>
@@ -71,7 +71,11 @@
             <h3>Wähle deinen Termin</h3>
             <p>Nach dem Upload erscheinen hier die nächsten verfügbaren Zeiten.</p>
             <div class="slot-panel" id="slot-panel" hidden>
-              <div class="date-tabs" id="date-tabs" role="tablist" aria-label="Verfügbare Tage"></div>
+              <div class="date-slider">
+                <button class="slider-arrow" id="dates-prev" type="button" aria-label="Frühere Termine">←</button>
+                <div class="date-tabs" id="date-tabs" role="tablist" aria-label="Verfügbare Tage"></div>
+                <button class="slider-arrow" id="dates-next" type="button" aria-label="Spätere Termine">→</button>
+              </div>
               <p class="slot-label">Freie Uhrzeiten</p>
               <div class="time-slots" id="time-slots" role="radiogroup" aria-label="Freie Uhrzeiten"></div>
               <input type="hidden" id="selected-slot" name="selected-slot" required>
@@ -98,15 +102,47 @@
             </div>
             <p class="locked-note" id="contact-placeholder">Wähle zuerst einen Termin aus.</p>
             <p class="field-error" id="contact-error" role="alert"></p>
-            <div class="success-message" id="success-message" role="status" hidden>
-              <strong>Anfrage ist vorbereitet.</strong>
-              <span>Wir melden uns mit Kostenschätzung und Terminbestätigung.</span>
-            </div>
           </div>
         </article>
       </form>
     </section>
+
+    <section class="location-section reveal" id="kontakt">
+      <div class="location-copy">
+        <p class="eyebrow">Vor Ort in Berlin</p>
+        <h2>Direkt zu<br>BEULEX.</h2>
+        <p>Dein Ansprechpartner für Smart-Repair in Berlin-Neukölln.</p>
+
+        <div class="contact-pills" aria-label="Kontaktdaten">
+          <a class="contact-pill" href="https://maps.google.com/?q=Rudower+Str.+156+A,+12351+Berlin" target="_blank" rel="noreferrer">
+            <span class="pill-icon" aria-hidden="true">⌖</span>
+            <span class="pill-details"><strong>Beulex – Smart-Repair</strong><small>Rudower Str. 156 A · 12351 Berlin</small></span>
+          </a>
+          <a class="contact-pill" href="tel:+49308544500">
+            <span class="pill-icon" aria-hidden="true">☎</span>
+            <span class="pill-details"><strong>Telefon</strong><small>030 / 85 44 500</small></span>
+          </a>
+          <a class="contact-pill" href="mailto:info@beulex.de">
+            <span class="pill-icon" aria-hidden="true">✉</span>
+            <span class="pill-details"><strong>E-Mail</strong><small>info@beulex.de</small></span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="map-card">
+        <img src="assets/beulex-map.svg" alt="Schematische Standortkarte von BEULEX an der Rudower Straße mit Lipschitzallee, Gropius Passagen, Johannisthaler Chaussee, A113 und Vivantes Klinikum Neukölln">
+        <figcaption><span>Rudower Str. 156 A</span><strong>12351 Berlin</strong></figcaption>
+      </figure>
+    </section>
   </main>
+
+  <section class="thank-you" id="thank-you" role="dialog" aria-modal="true" aria-labelledby="thank-you-title" hidden>
+    <div class="thank-you-mark" aria-hidden="true">✓</div>
+    <p class="eyebrow">Anfrage abgeschlossen</p>
+    <h2 id="thank-you-title">Danke für<br>deine Anfrage.</h2>
+    <p>Wir melden uns mit deiner Kostenschätzung und bestätigen anschließend den ausgewählten Termin.</p>
+    <button id="back-home" type="button">Zurück zur Homepage <span>→</span></button>
+  </section>
 
   <footer>
     <img src="assets/beulex-logo.png" alt="" aria-hidden="true">
