@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Schematische Standortkarte BEULEX</title>
+  <desc id="desc">BEULEX an der Rudower Straße mit Lipschitzallee, Johannisthaler Chaussee, Gropius Passagen, Vivantes Klinikum Neukölln und A113.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#071e50"/><stop offset="1" stop-color="#0a397b"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#02091b" flood-opacity=".4"/></filter>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+
+  <g fill="#0e5680" opacity=".55">
+    <path d="M0 0h240l65 115-85 92L0 175z"/><path d="M790 0h410v174l-140 52-152-68z"/>
+    <path d="M0 520l165-74 164 76-48 198H0z"/><path d="M1000 473l200-48v295H929z"/>
+  </g>
+  <g fill="#274f7e" opacity=".7">
+    <rect x="315" y="74" width="95" height="46" rx="7"/><rect x="442" y="94" width="72" height="35" rx="6"/>
+    <rect x="545" y="54" width="110" height="55" rx="8"/><rect x="693" y="133" width="84" height="42" rx="6"/>
+    <rect x="871" y="251" width="90" height="54" rx="7"/><rect x="1002" y="289" width="105" height="49" rx="7"/>
+    <rect x="595" y="563" width="90" height="47" rx="6"/><rect x="743" y="600" width="106" height="49" rx="7"/>
+  </g>
+
+  <!-- A113: diagonal in the upper-right, matching the supplied map view -->
+  <path d="M640 -35C773 80 907 172 1242 391" fill="none" stroke="#8ec7ff" stroke-width="34"/>
+  <path d="M640 -35C773 80 907 172 1242 391" fill="none" stroke="#0963cc" stroke-width="22"/>
+  <path d="M640 -35C773 80 907 172 1242 391" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="16 12" opacity=".8"/>
+
+  <!-- Johannisthaler Chaussee: from lower-left towards the center -->
+  <path d="M-60 700C155 619 307 547 516 433" fill="none" stroke="#eaf2ff" stroke-width="35" stroke-linecap="round"/>
+  <!-- Rudower Straße: through BEULEX towards lower-right -->
+  <path d="M315 548C508 452 622 399 733 421C861 447 1004 535 1255 626" fill="none" stroke="#fff" stroke-width="40" stroke-linecap="round"/>
+  <!-- Lipschitzallee: south from Rudower Straße -->
+  <path d="M619 420C603 512 653 590 725 760" fill="none" stroke="#eaf2ff" stroke-width="34" stroke-linecap="round"/>
+  <!-- local connector near Vivantes -->
+  <path d="M95 249C254 284 403 350 532 432" fill="none" stroke="#6f94bf" stroke-width="18" stroke-linecap="round"/>
+
+  <g font-family="Inter,Arial,sans-serif" font-weight="800" fill="#061f5c">
+    <text x="855" y="484" font-size="25" transform="rotate(19 855 484)">Rudower Straße</text>
+    <text x="185" y="622" font-size="23" transform="rotate(-26 185 622)">Johannisthaler Chaussee</text>
+    <text x="624" y="535" font-size="22" transform="rotate(62 624 535)">Lipschitzallee</text>
+  </g>
+
+  <g font-family="Inter,Arial,sans-serif" filter="url(#shadow)">
+    <g transform="translate(884 124)"><rect width="93" height="46" rx="10" fill="#fff"/><text x="46.5" y="31" text-anchor="middle" fill="#0750ae" font-size="25" font-weight="900">A113</text></g>
+    <g transform="translate(114 365)"><circle cx="24" cy="24" r="24" fill="#fff"/><path d="M16 24h16M24 16v16" stroke="#e6003d" stroke-width="6"/><text x="58" y="19" fill="#fff" font-size="22" font-weight="850">Vivantes Klinikum</text><text x="58" y="46" fill="#fff" font-size="22" font-weight="850">Neukölln</text></g>
+    <g transform="translate(151 574)"><circle cx="24" cy="24" r="24" fill="#fff"/><path d="M17 19h14v15H17zM20 19v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#0750ae" stroke-width="3"/><text x="59" y="32" fill="#fff" font-size="23" font-weight="850">Gropius Passagen</text></g>
+  </g>
+
+  <g transform="translate(687 362)" filter="url(#shadow)">
+    <path d="M0 0c-23 0-41 18-41 41 0 32 41 73 41 73s41-41 41-73C41 18 23 0 0 0z" fill="#e6003d"/>
+    <circle cy="40" r="14" fill="#fff"/>
+    <rect x="51" y="18" width="145" height="48" rx="8" fill="#e6003d"/>
+    <text x="123" y="51" text-anchor="middle" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="900">BEULEX</text>
+  </g>
+
+  <text x="44" y="55" fill="#fff" opacity=".62" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700">SCHEMATISCHE DARSTELLUNG</text>
+</svg>
