@@ -27,6 +27,8 @@ h1 em { color:var(--red); font-family:Georgia,serif; font-weight:400; }
 .section-heading h2 { font-size:clamp(3rem,6vw,6.4rem); }
 #beulex-form { display:grid; gap:1.25rem; }
 .step-card { display:grid; grid-template-columns:90px 1fr; gap:1.5rem; padding:clamp(1.4rem,3vw,2.4rem); border:1px solid var(--line); border-radius:26px; background:var(--white); transition:.25s ease; }
+.step-card[hidden] { display:none; }
+.step-card:not([hidden]) { animation:panel-open .5s cubic-bezier(.2,.8,.2,1) both; }
 .step-card.is-locked { background:#f8fafc; opacity:.64; }
 .step-number { width:58px; height:58px; display:grid; place-items:center; color:white; background:var(--navy); border-radius:50%; font-size:.78rem; font-weight:900; letter-spacing:.08em; }
 .step-content { min-width:0; }
