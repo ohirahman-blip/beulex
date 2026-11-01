@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BEULEX – Datum auswählen und Bild hochladen.">
+  <meta name="description" content="BEULEX – Ausbeulen ohne Lackieren. Bild hochladen, Termin wählen und Kostenschätzung erhalten.">
   <meta name="theme-color" content="#061f5c">
-  <title>BEULEX – Einfach starten</title>
+  <title>BEULEX – Ausbeulen ohne Lackieren</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,64 +13,105 @@
     <a class="brand" href="#start" aria-label="BEULEX Startseite">
       <img src="assets/beulex-logo.png" alt="BEULEX">
     </a>
-    <span class="header-note">Einfach. Direkt. Digital.</span>
+    <a class="header-link" href="#anfrage">Anfrage starten <span>→</span></a>
   </header>
 
   <main id="start">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> In zwei einfachen Schritten</p>
-        <h1>Datum wählen.<br><em>Bild hochladen.</em></h1>
-        <p class="intro">Wähle deinen Wunschtermin und lade ein passendes Foto hoch. Den Rest bauen wir als Nächstes.</p>
-        <div class="trust-row" aria-label="Vorteile">
-          <span>✓ Ohne Anmeldung</span>
-          <span>✓ Direkt im Browser</span>
-        </div>
+        <p class="eyebrow">Smart Repair für dein Fahrzeug</p>
+        <h1>Ausbeulen<br><em>ohne Lackieren.</em></h1>
+        <p class="intro">Lade ein Foto der Beule hoch, wähle einen verfügbaren Termin und erhalte eine Rückmeldung mit Kostenschätzung.</p>
+        <a class="primary-link" href="#anfrage">Bild hochladen <span>↓</span></a>
       </div>
 
-      <form class="action-card" id="beulex-form">
-        <div class="card-topline">
-          <span>Deine Auswahl</span>
-          <span class="step-badge">01—02</span>
-        </div>
+      <aside class="hours-card" aria-label="Öffnungszeiten">
+        <p class="card-kicker">Öffnungszeiten</p>
+        <div><strong>Montag – Donnerstag</strong><span>08:30 – 16:30</span></div>
+        <div><strong>Freitag</strong><span>08:30 – 14:30</span></div>
+        <div class="closed"><strong>Samstag & Sonntag</strong><span>geschlossen</span></div>
+      </aside>
+    </section>
 
-        <label class="field-label" for="date">Wunschtermin</label>
-        <div class="date-field">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
-          <input id="date" name="date" type="date" required>
-        </div>
+    <section class="request-section" id="anfrage">
+      <div class="section-heading">
+        <p class="eyebrow">Deine Anfrage</p>
+        <h2>Foto hochladen.<br>Termin bekommen.</h2>
+      </div>
 
-        <label class="field-label" for="image">Dein Bild</label>
-        <label class="upload-zone" id="upload-zone" for="image">
-          <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required>
-          <span class="upload-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg>
-          </span>
-          <strong>Bild hier ablegen</strong>
-          <span>oder zum Auswählen klicken</span>
-          <small>JPG, PNG oder WEBP · max. 10 MB</small>
-        </label>
+      <form id="beulex-form" novalidate>
+        <article class="step-card" id="upload-step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Zeig uns die Beule</h3>
+            <p>Ein gut beleuchtetes Foto reicht für eine erste Einschätzung.</p>
 
-        <div class="preview" id="preview" hidden>
-          <img id="preview-image" alt="Vorschau des ausgewählten Bildes">
-          <div>
-            <strong id="file-name"></strong>
-            <span id="file-size"></span>
+            <label class="upload-zone" id="upload-zone" for="image">
+              <input id="image" name="image" type="file" accept="image/png,image/jpeg,image/webp" required>
+              <span class="upload-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/></svg>
+              </span>
+              <strong>Bild hochladen</strong>
+              <span>oder hier ablegen</span>
+              <small>JPG, PNG oder WEBP · max. 10 MB</small>
+            </label>
+
+            <div class="preview" id="preview" hidden>
+              <img id="preview-image" alt="Vorschau des ausgewählten Bildes">
+              <div><strong id="file-name"></strong><span id="file-size"></span></div>
+              <button type="button" id="remove-image" aria-label="Bild entfernen">×</button>
+            </div>
+            <p class="field-error" id="image-error" role="alert"></p>
           </div>
-          <button type="button" id="remove-image" aria-label="Bild entfernen">×</button>
-        </div>
+        </article>
 
-        <button class="submit-button" type="submit">Auswahl bestätigen <span>→</span></button>
-        <p class="status" id="status" role="status" aria-live="polite"></p>
+        <article class="step-card is-locked" id="slot-step" aria-disabled="true">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>Wähle deinen Termin</h3>
+            <p>Nach dem Upload erscheinen hier die nächsten verfügbaren Zeiten.</p>
+            <div class="slot-panel" id="slot-panel" hidden>
+              <div class="date-tabs" id="date-tabs" role="tablist" aria-label="Verfügbare Tage"></div>
+              <p class="slot-label">Freie Uhrzeiten</p>
+              <div class="time-slots" id="time-slots" role="radiogroup" aria-label="Freie Uhrzeiten"></div>
+              <input type="hidden" id="selected-slot" name="selected-slot" required>
+            </div>
+            <p class="locked-note" id="slot-placeholder">Lade zuerst ein Bild hoch, um Termine zu sehen.</p>
+            <p class="field-error" id="slot-error" role="alert"></p>
+          </div>
+        </article>
+
+        <article class="step-card is-locked" id="contact-step" aria-disabled="true">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Wie dürfen wir dich erreichen?</h3>
+            <p>Du erhältst eine Kostenschätzung und anschließend deine Terminbestätigung.</p>
+            <div class="contact-panel" id="contact-panel" hidden>
+              <div class="contact-toggle" role="radiogroup" aria-label="Kontaktart">
+                <button class="active" type="button" data-contact="email" aria-pressed="true">E-Mail</button>
+                <button type="button" data-contact="phone" aria-pressed="false">Telefon</button>
+              </div>
+              <label class="sr-only" id="contact-label" for="contact-value">E-Mail-Adresse</label>
+              <input class="contact-input" id="contact-value" name="contact" type="email" autocomplete="email" placeholder="name@beispiel.de" required>
+              <label class="consent"><input type="checkbox" id="consent" required><span>Ich stimme zu, dass BEULEX mich zur Anfrage kontaktieren darf.</span></label>
+              <button class="submit-button" type="submit">Kostenschätzung anfragen <span>→</span></button>
+            </div>
+            <p class="locked-note" id="contact-placeholder">Wähle zuerst einen Termin aus.</p>
+            <p class="field-error" id="contact-error" role="alert"></p>
+            <div class="success-message" id="success-message" role="status" hidden>
+              <strong>Anfrage ist vorbereitet.</strong>
+              <span>Wir melden uns mit Kostenschätzung und Terminbestätigung.</span>
+            </div>
+          </div>
+        </article>
       </form>
     </section>
   </main>
 
   <footer>
     <img src="assets/beulex-logo.png" alt="" aria-hidden="true">
-    <p>© 2026 BEULEX</p>
+    <p>© 2026 BEULEX · Ausbeulen ohne Lackieren</p>
   </footer>
-
   <script src="app.js"></script>
 </body>
 </html>
